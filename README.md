@@ -6,19 +6,16 @@ Course repository for **Big Data**, containing lab exercises, source code, datas
 
 ```text
 .
-├── lab01/
-├── lab02/
-├── lab03/
-└── ...
+└── Lab01/
 ```
 
 Each lab is organized independently and may contain:
 
 ```text
-labXX/
+LabXX/
 ├── data/       # Input datasets
 ├── src/        # Source code
-├── docs/       # Instructions, notes, and screenshots
+├── docs/       # Instructions, notes, and supporting screenshots
 ├── report/     # Final lab report
 └── README.md   # Lab-specific information
 ```
@@ -38,7 +35,7 @@ The repository may include exercises and implementations related to:
 
 | Lab | Topic | Status |
 | --- | --- | --- |
-| [Lab 01](./lab01/) | Hadoop, HDFS and MapReduce | Completed |
+| [Lab 01](./Lab01/) | Hadoop, HDFS and MapReduce | Completed |
 | Lab 02 | To be updated | — |
 | Lab 03 | To be updated | — |
 

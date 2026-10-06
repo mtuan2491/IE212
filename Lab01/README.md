@@ -7,14 +7,17 @@ The lab includes transaction-analysis exercises and MovieLens-style rating-analy
 ## Folder Structure
 
 ```text
-lab01/
+Lab01/
 ├── data/
-│   ├── trans.txt
-│   ├── cust.txt
-│   ├── movies.txt
-│   ├── ratings_1.txt
-│   ├── ratings_2.txt
-│   └── users.txt
+│   ├── movielens/
+│   │   ├── movies.txt
+│   │   ├── ratings_1.txt
+│   │   ├── ratings_2.txt
+│   │   └── users.txt
+│   ├── trans/
+│   │   ├── cust.txt
+│   │   └── trans.txt
+│   └── README.md
 │
 ├── src/
 │   ├── TransAnalysis1.java
@@ -28,10 +31,21 @@ lab01/
 │   └── GenderRatingAverage.java
 │
 ├── docs/
-│   └── Huong_dan_Lab1_Hadoop_MapReduce.md
+│   ├── Huong_dan_Lab1_Hadoop_MapReduce.md
+│   └── screenshots/
+│       ├── setup/
+│       ├── B01/
+│       ├── B02/
+│       ├── B03/
+│       ├── B04/
+│       ├── B05/
+│       ├── B06/
+│       ├── C01_1/
+│       ├── C01_2/
+│       └── C01_3/
 │
 ├── report/
-│   └── <MSSV>_Lab_1.pdf
+│   └── 23521720_Lab_1.pdf
 │
 └── README.md
 ```
@@ -146,6 +160,21 @@ Detailed commands for every exercise are available in:
 ```text
 docs/Huong_dan_Lab1_Hadoop_MapReduce.md
 ```
+
+## Screenshots
+
+The `docs/` directory contains the detailed Lab 01 guide and its supporting screenshots. Screenshots are organized under `docs/screenshots/` as follows:
+
+- `setup/` documents copying files into Cloudera, verifying the HDFS input data, verifying the Distributed Cache, and verifying the generated JAR classes.
+- `B01/` through `B06/` contain execution and output evidence for exercises B.1 through B.6.
+- `C01_1/` through `C01_3/` contain execution and output evidence for the three required Part C.1 exercises.
+
+Each exercise directory normally contains:
+
+- `*-hadoop-jar.png`: the `hadoop jar` command and successful job execution.
+- `*-output.png`: the `hdfs dfs -cat` command and resulting output.
+
+When an exercise requires more than one output screenshot, the output filenames use numbered suffixes such as `*-output-1.png` and `*-output-2.png`.
 
 ## Report
 
