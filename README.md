@@ -1,58 +1,69 @@
-# Big Data
+# IE212 – Công nghệ dữ liệu lớn
 
-Course repository for **Big Data**, containing lab exercises, source code, datasets, reports, and notes related to Hadoop, HDFS, MapReduce, and other big data technologies studied throughout the course.
+Repository lưu mã nguồn, dữ liệu thực hành, hướng dẫn và báo cáo của môn **IE212 – Công nghệ dữ liệu lớn**. Hai bài Lab hiện có sử dụng Hadoop MapReduce với Java và Apache Spark RDD với Python để xử lý dữ liệu.
 
-## Repository Structure
+## Các bài thực hành
+
+| Bài | Nội dung đã thực hiện | Tài liệu |
+| --- | --- | --- |
+| Lab01 | Hadoop, HDFS, MapReduce: 6 bài phân tích giao dịch và 3 bài phân tích đánh giá phim bằng Java | [README Lab01](Lab01/README.md) |
+| Lab02 | Thực hành Spark RDD, TransAnalysis, MovieLens; BTVN gồm 7 bài phân tích OpenFlights | [README Lab02](Lab02/README.md) |
+
+## Cấu trúc repository
 
 ```text
 .
-└── Lab01/
+├── README.md
+├── Lab01/
+│   ├── README.md
+│   ├── data/
+│   │   ├── README.md
+│   │   ├── trans/
+│   │   └── movielens/
+│   ├── src/                         # 9 chương trình Java
+│   ├── docs/
+│   │   ├── Huong_dan_Lab1_Hadoop_MapReduce.md
+│   │   └── screenshots/
+│   └── report/
+│       └── 23521720_Lab_1.pdf
+└── Lab02/
+    ├── README.md
+    ├── data/
+    │   ├── openflights/             # 5 file .dat
+    │   ├── trans/
+    │   └── movielens-mini/
+    ├── src/
+    │   ├── Lab02_ThucHanh.ipynb
+    │   └── Lab02_BTVN.ipynb
+    ├── docs/
+    │   ├── Huong_dan_Lab2_Thuc_Hanh.md
+    │   ├── Huong_dan_Lab2_BTVN.md
+    │   └── result.md
+    └── report/
+        └── BaoCao.pdf
 ```
 
-Each lab is organized independently and may contain:
+Lab02 có hai nội dung độc lập: thực hành trên lớp dùng `data/trans/` và `data/movielens-mini/` để học Spark RDD, TransAnalysis và MovieLens; BTVN dùng `data/openflights/` để phân tích mạng bay. Xem [README Lab02](Lab02/README.md) để chọn notebook và tài liệu tương ứng.
 
-```text
-LabXX/
-├── data/       # Input datasets
-├── src/        # Source code
-├── docs/       # Instructions, notes, and supporting screenshots
-├── report/     # Final lab report
-└── README.md   # Lab-specific information
-```
+## Môi trường và công nghệ
 
-## Topics
+| Phạm vi | Công nghệ/môi trường có căn cứ trong repository |
+| --- | --- |
+| Lab01 | Java, Hadoop, HDFS, MapReduce, Distributed Cache; tài liệu ghi nhận Cloudera QuickStart VM, Eclipse và VMware. Chưa có thông tin phiên bản cụ thể. |
+| Lab02 | Python, PySpark, Spark RDD; hai notebook có mã upload Google Colab và chạy Spark bằng `local[*]`. |
+| Phiên bản Lab02 | Thực hành cài `pyspark==3.5.1` và in Spark `3.5.1`. BTVN cài bản này khi thiếu PySpark, metadata khai báo Python `3.10`. Chưa có output xác nhận Python/Java của hai runtime và PySpark thực tế của BTVN. |
 
-The repository may include exercises and implementations related to:
+## Bắt đầu
 
-- Hadoop
-- HDFS
-- MapReduce
-- Distributed data processing
-- Big data storage and processing
-- Other technologies introduced during the course
+- **Lab01:** xem [nội dung bài thực hành](Lab01/README.md), [dữ liệu](Lab01/data/README.md) và [hướng dẫn chạy Hadoop MapReduce](Lab01/docs/Huong_dan_Lab1_Hadoop_MapReduce.md).
+- **Lab02:** xem [tổng quan hai nội dung](Lab02/README.md). Chọn [hướng dẫn thực hành RDD, TransAnalysis và MovieLens](Lab02/docs/Huong_dan_Lab2_Thuc_Hanh.md), hoặc [hướng dẫn BTVN OpenFlights](Lab02/docs/Huong_dan_Lab2_BTVN.md) và [kết quả BTVN Bài 1–7](Lab02/docs/result.md).
 
-## Labs
+Cả hai notebook Lab02 đã lưu output. Giữ nguyên dữ liệu đi kèm khi chạy lại để có cùng cơ sở đối chiếu; dữ liệu tải mới từ nguồn có thể khác bản trong repository.
 
-| Lab | Topic | Status |
-| --- | --- | --- |
-| [Lab 01](./Lab01/) | Hadoop, HDFS and MapReduce | Completed |
-| Lab 02 | To be updated | — |
-| Lab 03 | To be updated | — |
+## Tài liệu tham khảo
 
-The table will be updated as new labs are completed.
+- [Apache Hadoop – MapReduce Tutorial](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) — tài liệu framework, không dùng để suy ra phiên bản Hadoop của Lab01.
+- [Apache Spark 3.5.1](https://archive.apache.org/dist/spark/docs/3.5.1/) và [RDD Programming Guide](https://archive.apache.org/dist/spark/docs/3.5.1/rdd-programming-guide.html).
+- [OpenFlights – mô tả dữ liệu và điều kiện sử dụng](https://openflights.org/data.php). Xem thêm [ghi nhận nguồn dữ liệu Lab02](Lab02/README.md#nguồn-và-điều-kiện-sử-dụng).
 
-## Notes
-
-- Generated build files such as `.class`, `.jar`, Eclipse metadata, and temporary files are not intended to be committed unless they are specifically required.
-- Datasets and course materials are stored only when appropriate for the repository.
-- Detailed setup and execution instructions are placed inside each lab folder.
-
-## Environment
-
-The exact environment may vary between labs. Lab 01 was completed using:
-
-- Cloudera QuickStart VM
-- Hadoop / HDFS / MapReduce
-- Java
-- Eclipse
-- VMware
+Các file biên dịch `.class`, `.jar`, metadata Eclipse và file tạm không cần đưa lên GitHub nếu không phục vụ việc tái hiện bài thực hành. Hướng dẫn riêng và báo cáo được đặt trong từng Lab.

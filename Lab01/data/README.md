@@ -1,63 +1,48 @@
-# Data — Lab 1
+# Dữ liệu Lab01
 
-## 1. `trans/` — Sports Center Transactions
+Các số dòng bên dưới được đếm trực tiếp từ file trong repository; các file không có dòng tiêu đề.
 
-Used for the in-class exercises (`TransAnalysis1–6`).
+## 1. Giao dịch: `trans/`
 
-> 📦 Files used only for Assignment 1 (`cust20_*`, `profession*`, `trans240_20*`) were moved to `_archive/Lab 1 - Assignment 1/data/trans/` on 15/09/2026.
+| File | Số dòng | Vai trò |
+| --- | ---: | --- |
+| [trans.txt](trans/trans.txt) | 60 | Dữ liệu giao dịch cho `TransAnalysis1`–`TransAnalysis6` |
+| [cust.txt](trans/cust.txt) | 10 | Tra tên và tuổi khách hàng qua Distributed Cache ở B.5–B.6 |
 
-### Transaction files
-
-| File | Number of lines | Used in |
-|---|---:|---|
-| `trans240_1.txt`, `trans240_2.txt` | 120 each | TransAnalysis 1–6 |
-
-**Schema** (comma-separated, **no header**):
+Cấu trúc giao dịch, phân cách bằng dấu phẩy:
 
 ```text
-TransID, Date, CustID, Cost, Game, Equipment, City, State, Mode
+TransID,Date,CustID,Cost,Game,Equipment,City,State,Mode
+00000000,06-26-2011,4000001,040.33,Exercise & Fitness,Cardio Machine Accessories,Clarksville,Tennessee,credit
 ```
 
-Example:
+Ví dụ ngày trong file hiện tại là `06-26-2011`. Tên môn thể thao có ký tự `&`, tên thiết bị có khoảng trắng; không tách bản ghi bằng khoảng trắng.
+
+Cấu trúc khách hàng:
 
 ```text
-0,Jun-26-2011,4000001,40.33,Exercise & Fitness,Cardio Machine Accessories,Clarksville,Tennessee,credit
-```
-
-> ⚠️ **The date format is `Jun-26-2011`** (month written as an abbreviation), **not** `06-26-2011`. The document `vi-du/Giải thích TransAnalysis.docx` uses `06-26-2011` in its example, which **does not match the actual data**. If the month is extracted using `Date.split("-")[0]`, the result will be the string `"Jun"`, not a number. The document should be corrected or this should be explained clearly to students.
-
-> ⚠️ The `Game` column contains values with an **ampersand** (`Exercise & Fitness`), and the `Equipment` column contains **spaces**. Do not split records by whitespace.
-
-### Customer file
-
-`cust.txt` (10 lines):
-
-```text
-CustID, FirstName, LastName, Age, Profession
+CustID,FirstName,LastName,Age,Profession
 4000001,Kristina,Chung,55,Pilot
 ```
 
----
+Các dòng đầu trong hai code block là mô tả schema, không phải header có sẵn trong file.
 
-## 2. `movielens-mini/` — Mini MovieLens Dataset (Version A)
+## 2. Đánh giá phim: `movielens/`
 
-Used for the **submission section** (`de-bai/Phan-B-MovieLens-MapReduce.docx`).
-
-| File | Number of lines |
-|---|---:|
-| `movies.txt` | 50 |
-| `ratings_1.txt`, `ratings_2.txt` | 50 each |
-| `users.txt` | 50 |
-
-**Schema:**
+| File | Số dòng | Vai trò |
+| --- | ---: | --- |
+| [movies.txt](movielens/movies.txt) | 50 | Tên và thể loại phim |
+| [ratings_1.txt](movielens/ratings_1.txt) | 50 | Phần thứ nhất của dữ liệu đánh giá |
+| [ratings_2.txt](movielens/ratings_2.txt) | 50 | Phần thứ hai của dữ liệu đánh giá |
+| [users.txt](movielens/users.txt) | 50 | Thông tin người dùng, gồm giới tính |
 
 ```text
-movies.txt   : MovieID, Title, Genres          (Genres are separated by "|")
-ratings_1/2  : UserID, MovieID, Rating, Timestamp
-users.txt    : UserID, Gender, Age, Occupation, Zip-code
+movies.txt  : MovieID, Title, Genres
+ratings_1/2 : UserID, MovieID, Rating, Timestamp
+users.txt   : UserID, Gender, Age, Occupation, Zip-code
 ```
 
-Example:
+Các thể loại trong `Genres` được ngăn bằng `|`. Ví dụ:
 
 ```text
 1043, Toy Story (1995), Animation|Children|Comedy
@@ -65,44 +50,31 @@ Example:
 537, F, 25, 10, 48067
 ```
 
-> ⚠️ **There is a space after each comma.** You must call `trim()` after `split(",")`; otherwise, `Integer.parseInt(" 1043")` will throw a `NumberFormatException`. This is one of the most common mistakes students make in this lab.
+Dữ liệu có khoảng trắng sau dấu phẩy; mã Java phần đánh giá phim dùng `trim()` khi lấy các trường. `GenreRatingAverage` tra thể loại từ `movies.txt`; `GenderRatingAverage` dùng reduce-side join cho phim và đánh giá, đồng thời tra giới tính từ `users.txt` qua Distributed Cache.
 
----
+## 3. Phân biệt với dữ liệu Lab02
 
-## 3. ⚠️ Important Note: The Two MovieLens Datasets Are NOT the Same
+[Lab02/data/movielens-mini/](../../Lab02/data/movielens-mini/) là bộ dữ liệu khác: có 184 dòng đánh giá (84 + 100) và thêm `occupation.txt`; Lab01 có 100 dòng đánh giá. Hai file giao dịch `trans240_1.txt`, `trans240_2.txt` nằm ở [Lab02/data/trans/](../../Lab02/data/trans/), không phải đầu vào của Lab01 hiện tại.
 
-The dataset here (**Version A**) and the dataset in `Lab 2 - Spark RDD & DataFrame/data/movielens-mini/` (**Version B**) are **different datasets**:
+Không đối chiếu trực tiếp kết quả số giữa hai bộ dữ liệu này. Notebook Lab02 hiện chỉ giải các bài OpenFlights.
 
-| | Version A (Lab 1) | Version B (Lab 2) |
-|---|---|---|
-| Delimiter format | `,` + **space** | `,` with no space |
-| MovieID range | 1043, 2589, 3791… | 1001–1030 |
-| Timestamp | ~964982703 (year 2000) | ~1577836800 (year 2020) |
-| Number of ratings | 100 | 184 |
-| Includes `occupation.txt` | ❌ | ✅ |
+## 4. Đưa dữ liệu lên HDFS
 
-**Consequence:** the exercise *"compare MapReduce vs RDD vs DataFrame on the same problem"* in Lab 2 **cannot compare numerical results directly** if the two labs use different datasets.
-
-**Decision required:** standardize both labs on **one** dataset (recommended: **Version B** — cleaner, contains more data, and also includes `occupation.txt`), then copy it into both labs. See the outstanding tasks section in `TONG-HOP-NOI-DUNG-LAB.md`.
-
----
-
-## 4. Uploading Data to HDFS
-
-On the **Cloudera QuickStart VM**, the HDFS home directory is `/user/cloudera`:
+Chạy từ thư mục `Lab01/data/` trong Cloudera VM đã cấu hình Hadoop:
 
 ```bash
 hdfs dfs -mkdir -p /user/cloudera/lab1/trans
-hdfs dfs -put trans/trans240_1.txt trans/trans240_2.txt /user/cloudera/lab1/trans/
-hdfs dfs -ls -R /user/cloudera/lab1
-```
-
-**Required for `TransAnalysis5` and `TransAnalysis6`** — both programs load the file through Distributed Cache using the URI `hdfs://localhost:8020/mycache/cust` (Slide 4, page 16), so the file must be placed at exactly that path and **must be named `cust`, without the `.txt` extension**:
-
-```bash
+hdfs dfs -mkdir -p /user/cloudera/lab1/ml
 hdfs dfs -mkdir -p /mycache
-hdfs dfs -put trans/cust.txt /mycache/cust
+hdfs dfs -put -f trans/trans.txt /user/cloudera/lab1/trans/
+hdfs dfs -put -f trans/cust.txt /mycache/cust
+hdfs dfs -put -f movielens/movies.txt movielens/ratings_1.txt movielens/ratings_2.txt movielens/users.txt /user/cloudera/lab1/ml/
+hdfs dfs -ls -R /user/cloudera/lab1
 hdfs dfs -ls /mycache
 ```
 
-> 💡 These steps should be completed **before class** — see section 6 in `../00-setup/README.md`.
+`TransAnalysis5` và `TransAnalysis6` dùng URI `hdfs://localhost:8020/mycache/cust`, nên file cache phải mang tên `cust` không có đuôi `.txt`. Các bài đánh giá phim dùng file tra cứu dưới `/user/cloudera/lab1/ml/` theo URI ghi trong mã nguồn.
+
+Xem [hướng dẫn Lab01](../docs/Huong_dan_Lab1_Hadoop_MapReduce.md) để biên dịch, export JAR và chạy từng bài. Hướng dẫn mô tả việc gom dữ liệu vào một thư mục trong VM; cấu trúc dữ liệu trong GitHub được trình bày ở trên.
+
+Repository chưa có nguồn tải và điều kiện sử dụng được xác minh cho các file giao dịch, đánh giá phim của Lab01; cần bổ sung nếu xác định được nguồn tài liệu môn học.
