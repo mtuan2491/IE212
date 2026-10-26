@@ -1,0 +1,9 @@
+# Python, notebook checkpoints and local environments
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Temporary upload archive; keep the extracted datasets in Git
+data.zip
