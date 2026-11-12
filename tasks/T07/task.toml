@@ -1,0 +1,16 @@
+id = "T07"
+title = "Thử tương thích và pin môi trường"
+phase = "P1"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "B"
+estimated_scope = "S"
+dependencies = ["T04"]
+merge_dependencies = []
+input_files = ["pyproject.toml","config/example.toml"]
+output_files = ["docs/runbooks/runtime.md","requirements-runtime.txt"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t07"]]
+merge_checks = [["python","-m","unittest","tests.test_t07"]]
+acceptance = ["Thử phiên bản Python, JVM, Spark, Hadoop và Git trên môi trường dự kiến.","Ghi ma trận đã thử, pin phiên bản và lưu output doctor cùng smoke test."]

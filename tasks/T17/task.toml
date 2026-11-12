@@ -1,0 +1,16 @@
+id = "T17"
+title = "Xác minh parity của FP-Growth và luật"
+phase = "P3"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T14","T15","T16"]
+merge_dependencies = []
+input_files = ["src/ie212_instacart/validation/oracle.py","src/ie212_instacart/mining/rules.py"]
+output_files = ["tests/test_t17.py","docs/validation/fpgrowth.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t17"]]
+merge_checks = [["python","-m","unittest","tests.test_t17"]]
+acceptance = ["Đối chiếu từng khóa itemset/luật và chỉ số với oracle trong lần chạy tái lập.","Sai một hàng làm kiểm thử fail, ghi seed và phạm vi fixture."]

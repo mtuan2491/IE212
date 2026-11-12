@@ -1,0 +1,16 @@
+id = "T18"
+title = "Triển khai DApriori trên Spark k≤2"
+phase = "P4"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "M"
+dependencies = ["T06","T12","T14"]
+merge_dependencies = []
+input_files = ["docs/adr/0002-dapriori-scope.md","src/ie212_instacart/preprocessing/baskets.py","src/ie212_instacart/validation/oracle.py"]
+output_files = ["src/ie212_instacart/mining/dapriori.py","tests/test_t18.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t18"]]
+merge_checks = [["python","-m","unittest","tests.test_t18"]]
+acceptance = ["Đếm singleton, sinh/prune candidate, phân phối và reduce số đếm cặp trên Spark.","Fixture kiểm ngưỡng, tập rỗng, item trùng và độ dài k. Mapping bài báo có khác biệt được ghi rõ."]

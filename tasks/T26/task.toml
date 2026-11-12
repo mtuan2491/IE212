@@ -1,0 +1,16 @@
+id = "T26"
+title = "Tổng hợp kết quả và vẽ biểu đồ"
+phase = "P5"
+status = "planned"
+priority = "medium"
+assignee = "unassigned"
+workstream = "B"
+estimated_scope = "S"
+dependencies = ["T25"]
+merge_dependencies = []
+input_files = ["reports/benchmark_runs.md","docs/experiment_protocol.md"]
+output_files = ["scripts/experiments/summarize.py","reports/results.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t26"]]
+merge_checks = [["python","-m","unittest","tests.test_t26"]]
+acceptance = ["Sinh summary CSV và chart từ run IDs thật, ghi điều kiện và giới hạn.","Đối chiếu thống kê với raw results, phân biệt local/pseudo-distributed và cluster."]

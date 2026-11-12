@@ -1,0 +1,17 @@
+id = "T08"
+title = "Thiết lập và kiểm tra HDFS pseudo-distributed"
+phase = "P1"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "B"
+estimated_scope = "M"
+dependencies = ["T07"]
+merge_dependencies = []
+input_files = ["docs/runbooks/runtime.md"]
+output_files = ["docs/runbooks/hdfs.md","scripts/bootstrap/check_hdfs.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t08"]]
+merge_checks = [["python","-m","unittest","tests.test_t08"]]
+acceptance = ["Ghi setup và chạy put/get checksum trong namespace thử nghiệm được cấp.","Phân biệt URI HDFS và file; kiểm round trip và báo BLOCKED khi thiếu daemon."]
+output_tools = ["hdfs"]

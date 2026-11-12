@@ -1,0 +1,16 @@
+id = "T06"
+title = "Đọc và đối chiếu Algorithm 1 của DApriori"
+phase = "P1"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T03"]
+merge_dependencies = []
+input_files = ["docs/requirements.md"]
+output_files = ["docs/research.md","docs/adr/0002-dapriori-scope.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t06"]]
+merge_checks = [["python","-m","unittest","tests.test_t06"]]
+acceptance = ["Ánh xạ từng bước Algorithm 1 đến phép Spark dự kiến và chỉ ra khác biệt.","Trích DOI/phiên bản, công bố rõ giới hạn k và các bước được thay đổi."]

@@ -1,0 +1,16 @@
+id = "T27"
+title = "Đóng gói demo và runbook full"
+phase = "P6"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T17","T19","T22"]
+merge_dependencies = []
+input_files = ["docs/validation/fpgrowth.md","src/ie212_instacart/validation/itemset_parity.py","src/ie212_instacart/validation/pair_parity.py"]
+output_files = ["scripts/demo.py","docs/runbooks/demo.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t27"]]
+merge_checks = [["python","-m","unittest","tests.test_t27"]]
+acceptance = ["Từ clone sạch chạy CLI fixture, rồi tài liệu hóa tuyến full/HDFS.","Ghi expected output cho fixture và cách chẩn đoán nếu môi trường full thiếu."]

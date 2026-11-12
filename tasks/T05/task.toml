@@ -1,0 +1,16 @@
+id = "T05"
+title = "Xây registry và kiểm chứng task gates"
+phase = "P0"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "B"
+estimated_scope = "M"
+dependencies = ["T02","T04"]
+merge_dependencies = []
+input_files = ["docs/ie307_workflow_review.md","pyproject.toml"]
+output_files = ["tasks/registry.toml","scripts/tasks/check_input.py","scripts/tasks/check_output.py","scripts/tasks/validate_contracts.py","scripts/ci/validate_merge.sh","scripts/ci/run_tests.sh","tests/test_bootstrap.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_bootstrap"]]
+merge_checks = [["python","-m","unittest","tests.test_bootstrap"]]
+acceptance = ["Chạy gate trên fixture và test mã thoát cho dependency, schema, output và merge.","Phát hiện cycle, path sai và xung đột. Kiểm tra không đổi working tree/main."]

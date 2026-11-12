@@ -1,0 +1,16 @@
+id = "T23"
+title = "Tạo tập benchmark theo số order"
+phase = "P5"
+status = "planned"
+priority = "medium"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T10","T12"]
+merge_dependencies = []
+input_files = ["docs/data/instacart_manifest.json","src/ie212_instacart/preprocessing/baskets.py"]
+output_files = ["src/ie212_instacart/benchmark/subsets.py","tests/test_t23.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t23"]]
+merge_checks = [["python","-m","unittest","tests.test_t23"]]
+acceptance = ["Chọn order_id theo seed, tạo manifest và giữ tất cả sản phẩm mỗi order được chọn.","Kiểm kích thước, không cắt basket, tái lập cùng seed và scope dữ liệu."]

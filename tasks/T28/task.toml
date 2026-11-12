@@ -1,0 +1,16 @@
+id = "T28"
+title = "Viết báo cáo phương pháp và thực nghiệm"
+phase = "P6"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "Chung"
+estimated_scope = "M"
+dependencies = ["T06","T26"]
+merge_dependencies = []
+input_files = ["docs/research.md","reports/results.md"]
+output_files = ["reports/final_report.md","presentation/outline.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t28"]]
+merge_checks = [["python","-m","unittest","tests.test_t28"]]
+acceptance = ["Tóm tắt paper, phương pháp, thực nghiệm, giới hạn, kết quả và nguồn.","Truy vết biểu đồ về run IDs và câu chữ về scope đã kiểm chứng."]

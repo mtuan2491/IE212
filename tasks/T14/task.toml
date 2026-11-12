@@ -1,0 +1,16 @@
+id = "T14"
+title = "Viết oracle itemsets và luật bằng Python"
+phase = "P3"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T09"]
+merge_dependencies = []
+input_files = ["docs/data_contract.md","tests/fixtures/instacart/orders.csv"]
+output_files = ["src/ie212_instacart/validation/oracle.py","tests/test_t14.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t14"]]
+merge_checks = [["python","-m","unittest","tests.test_t14"]]
+acceptance = ["Đếm vét cạn fixture và kiểm một luật cụ thể bằng count(A), count(B), count(A∪B).","Kiểm đúng tại biên ceil(s*N), frequency nguyên, support/confidence/lift."]

@@ -1,0 +1,17 @@
+id = "T20"
+title = "Viết Java Hadoop MapReduce đếm cặp"
+phase = "P4"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "B"
+estimated_scope = "M"
+dependencies = ["T07","T09"]
+merge_dependencies = ["T13"]
+input_files = ["docs/runbooks/runtime.md","docs/data_contract.md"]
+output_files = ["mapreduce/pom.xml","mapreduce/src/main/java/ie212/PairCount.java","tests/test_t20.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t20"]]
+merge_checks = [["python","-m","unittest","tests.test_t20"]]
+acceptance = ["Java Hadoop Mapper/Reducer dùng cùng định dạng basket và xuất product_a/product_b/count.","JUnit fixture gồm dedup, A<B, basket nhỏ và khóa trùng; kiểm HDFS sau T13."]
+output_tools = ["java","mvn"]

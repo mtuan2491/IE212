@@ -1,0 +1,15 @@
+name: Lỗi
+description: Báo lỗi có bước tái hiện
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Lệnh chạy, đầu vào fixture, mong đợi và kết quả thực tế
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Commit và môi trường
+    validations:
+      required: true

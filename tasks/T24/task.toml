@@ -1,0 +1,16 @@
+id = "T24"
+title = "Xây harness benchmark có provenance"
+phase = "P5"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "B"
+estimated_scope = "M"
+dependencies = ["T19","T22","T23"]
+merge_dependencies = []
+input_files = ["docs/experiment_protocol.md","src/ie212_instacart/validation/pair_parity.py","src/ie212_instacart/benchmark/subsets.py"]
+output_files = ["src/ie212_instacart/benchmark/runner.py","tests/test_t24.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t24"]]
+merge_checks = [["python","-m","unittest","tests.test_t24"]]
+acceptance = ["Ghi warmup, repeats, timer theo giai đoạn, tài nguyên và phiên bản bằng metadata.","Kiểm thu exit code/timeouts, cache policy, và không trộn số đo hai trục."]

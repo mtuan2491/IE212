@@ -1,0 +1,16 @@
+id = "T25"
+title = "Chạy ma trận sensitivity và benchmark"
+phase = "P5"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A+B"
+estimated_scope = "M"
+dependencies = ["T24"]
+merge_dependencies = []
+input_files = ["docs/experiment_protocol.md","src/ie212_instacart/benchmark/runner.py"]
+output_files = ["experiments/configs/sensitivity.toml","reports/benchmark_runs.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t25"]]
+merge_checks = [["python","-m","unittest","tests.test_t25"]]
+acceptance = ["Chạy nhiều size/support/partitions trên môi trường đã mô tả, lưu dữ liệu thô ngoài Git.","Mỗi cấu hình khả thi có ít nhất ba lần đo; ghi biến thiên, thất bại và workload."]

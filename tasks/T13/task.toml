@@ -1,0 +1,17 @@
+id = "T13"
+title = "Lưu Parquet và xác minh HDFS round trip"
+phase = "P2"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A+B"
+estimated_scope = "M"
+dependencies = ["T08","T12"]
+merge_dependencies = []
+input_files = ["docs/runbooks/hdfs.md","src/ie212_instacart/preprocessing/baskets.py"]
+output_files = ["src/ie212_instacart/preprocessing/storage.py","docs/runbooks/hdfs_pipeline.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t13"]]
+merge_checks = [["python","-m","unittest","tests.test_t13"]]
+acceptance = ["Lưu và đọc Parquet theo URI HDFS, so schema và toàn bộ basket của fixture.","Ghi evidence HDFS thật, đếm row/key và hash chuẩn hóa trước/sau."]
+output_tools = ["hdfs"]

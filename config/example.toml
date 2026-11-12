@@ -1,0 +1,12 @@
+[storage]
+raw = "data/raw"
+processed = "data/processed"
+hdfs_uri = "hdfs://localhost:9000"
+hdfs_project_path = "/ie212"
+
+[experiment]
+seed = 212
+min_support = 0.001
+min_confidence = 0.3
+max_itemset_size = 2
+repetitions = 3

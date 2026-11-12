@@ -1,0 +1,16 @@
+id = "T12"
+title = "Chuẩn hóa từng order thành basket Spark"
+phase = "P2"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "M"
+dependencies = ["T11"]
+merge_dependencies = []
+input_files = ["docs/data_contract.md","src/ie212_instacart/ingestion/profile.py"]
+output_files = ["src/ie212_instacart/preprocessing/baskets.py","tests/test_t12.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t12"]]
+merge_checks = [["python","-m","unittest","tests.test_t12"]]
+acceptance = ["Dùng Spark SQL/DataFrame join khóa, loại trùng và sắp xếp item theo order_id.","Kiểm không gộp order cùng user, không cắt basket, không join nhầm split."]

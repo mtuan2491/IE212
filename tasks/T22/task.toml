@@ -1,0 +1,16 @@
+id = "T22"
+title = "So toàn bộ output Spark và Hadoop MapReduce"
+phase = "P4"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A+B"
+estimated_scope = "S"
+dependencies = ["T20","T21"]
+merge_dependencies = []
+input_files = ["mapreduce/src/main/java/ie212/PairCount.java","src/ie212_instacart/mining/pair_count.py"]
+output_files = ["src/ie212_instacart/validation/pair_parity.py","tests/test_t22.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t22"]]
+merge_checks = [["python","-m","unittest","tests.test_t22"]]
+acceptance = ["Chuẩn hóa khóa và so từng số đếm của hai output trên cùng tập basket.","Báo thiếu, thừa, sai giá trị. Kiểm boundary và lưu nguồn input/config."]

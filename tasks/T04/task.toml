@@ -1,0 +1,16 @@
+id = "T04"
+title = "Khởi tạo repository sạch"
+phase = "P0"
+status = "blocked"
+priority = "high"
+assignee = "unassigned"
+workstream = "Chung"
+estimated_scope = "S"
+dependencies = ["T01","T03"]
+merge_dependencies = []
+input_files = ["docs/reset_verification.md","docs/requirements.md"]
+output_files = ["AGENTS.md","README.md","pyproject.toml","config/example.toml"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t04"]]
+merge_checks = [["python","-m","unittest","tests.test_t04"]]
+acceptance = ["Đưa cấu trúc bootstrap vào Git mới và giữ bản đặc tả gốc ở máy cục bộ.","Repo sạch có ref riêng khi có commit được duyệt và hướng dẫn chạy từ clone sạch."]

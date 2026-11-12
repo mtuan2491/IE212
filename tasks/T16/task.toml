@@ -1,0 +1,16 @@
+id = "T16"
+title = "Sinh và kiểm tra luật kết hợp"
+phase = "P3"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T15"]
+merge_dependencies = []
+input_files = ["src/ie212_instacart/mining/fpgrowth.py","docs/data_contract.md"]
+output_files = ["src/ie212_instacart/mining/rules.py","tests/test_t16.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t16"]]
+merge_checks = [["python","-m","unittest","tests.test_t16"]]
+acceptance = ["Ánh xạ tên sản phẩm và kiểm Support, Confidence, Lift từ các tần suất gốc.","Có test luật cụ thể, ngưỡng bằng nhau và tên sản phẩm thiếu."]

@@ -1,0 +1,16 @@
+id = "T03"
+title = "Chốt phạm vi và truy vết yêu cầu"
+phase = "P0"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "Chung"
+estimated_scope = "S"
+dependencies = ["T01"]
+merge_dependencies = []
+input_files = ["docs/requirements.md","docs/reset_verification.md"]
+output_files = ["docs/requirements.md","docs/open_questions.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t03"]]
+merge_checks = [["python","-m","unittest","tests.test_t03"]]
+acceptance = ["Ánh xạ từng yêu cầu mục 1 sang task hoặc bằng chứng dự kiến.","Giữ DOI, prior/full, HDFS và hai trục so sánh. Ghi riêng câu hỏi về góp ý giảng viên."]

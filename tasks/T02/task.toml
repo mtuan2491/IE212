@@ -1,0 +1,16 @@
+id = "T02"
+title = "Khảo sát quy trình IE307"
+phase = "P0"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "B"
+estimated_scope = "XS"
+dependencies = []
+merge_dependencies = []
+input_files = ["docs/requirements.md"]
+output_files = ["docs/ie307_workflow_review.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t02"]]
+merge_checks = [["python","-m","unittest","tests.test_t02"]]
+acceptance = ["Ghi bằng chứng quy trình task, CI, preflight và merge theo tệp nguồn đã đọc.","Mỗi quy ước áp dụng có file đối chiếu, điều chỉnh cho hai người và giới hạn khảo sát."]

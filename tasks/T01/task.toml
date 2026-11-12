@@ -1,0 +1,16 @@
+id = "T01"
+title = "Kiểm kê và bảo toàn repo cũ"
+phase = "P0"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "Chung"
+estimated_scope = "S"
+dependencies = []
+merge_dependencies = []
+input_files = ["docs/requirements.md"]
+output_files = ["docs/reset_verification.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t01"]]
+merge_checks = [["python","-m","unittest","tests.test_t01"]]
+acceptance = ["Ghi HEAD/refs, file chưa commit và hash CSV/prompt trước và sau khi lưu trữ.","Xác nhận archive và repo sạch có lịch sử riêng, kèm đường rollback."]

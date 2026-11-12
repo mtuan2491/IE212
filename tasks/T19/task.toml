@@ -1,0 +1,16 @@
+id = "T19"
+title = "Đối chiếu DApriori và FP-Growth theo k≤2"
+phase = "P4"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T15","T18"]
+merge_dependencies = []
+input_files = ["src/ie212_instacart/mining/fpgrowth.py","src/ie212_instacart/mining/dapriori.py"]
+output_files = ["src/ie212_instacart/validation/itemset_parity.py","tests/test_t19.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t19"]]
+merge_checks = [["python","-m","unittest","tests.test_t19"]]
+acceptance = ["Dùng cùng basket, ngưỡng và itemset chuẩn hóa để so tần suất/support từng khóa.","Kiểm đủ tập khóa và giá trị. Ghi FP-Growth có khai phá độ dài lớn hơn trước lọc hay không."]

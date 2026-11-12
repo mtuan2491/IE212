@@ -1,0 +1,16 @@
+id = "T09"
+title = "Chốt schema, provenance và fixture CSV"
+phase = "P1"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T03"]
+merge_dependencies = []
+input_files = ["docs/requirements.md","tests/fixtures/baskets.csv"]
+output_files = ["docs/data_contract.md","tests/fixtures/instacart/orders.csv","scripts/data/verify_input.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t09"]]
+merge_checks = [["python","-m","unittest","tests.test_t09"]]
+acceptance = ["Xác nhận schema từ nguồn đăng ký và tạo fixture nhỏ cho ca tốt/lỗi.","Có assertions cho header, missing file, schema sai và checksum nguồn nếu có."]

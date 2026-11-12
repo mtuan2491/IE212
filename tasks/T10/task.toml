@@ -1,0 +1,16 @@
+id = "T10"
+title = "Tiếp nhận Instacart prior/full thật"
+phase = "P2"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "S"
+dependencies = ["T09"]
+merge_dependencies = []
+input_files = ["docs/data_contract.md","scripts/data/verify_input.py"]
+output_files = ["docs/data/instacart_manifest.json","scripts/data/import_instacart.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t10"]]
+merge_checks = [["python","-m","unittest","tests.test_t10"]]
+acceptance = ["Nhập đủ file được phép vào kho raw và ghi nguồn, hash, header, byte và split.","Đọc được prior, kiểm hash có provenance, giữ raw ngoài Git và tách train/test."]

@@ -1,0 +1,19 @@
+id = "DEMO"
+title = "Kiểm thử ba cổng bằng fixture đếm cặp"
+phase = "P0"
+status = "ready"
+priority = "high"
+assignee = "unassigned"
+workstream = "Chung"
+estimated_scope = "XS"
+dependencies = []
+merge_dependencies = []
+input_files = ["tests/fixtures/baskets.csv"]
+output_files = ["artifacts/demo/pair_counts.csv"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.demo_output_checks"]]
+merge_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+acceptance = ["Cặp (3,7) có count 2, cặp (3,9) có count 1","Mỗi order chỉ đóng góp một lần cho mỗi cặp"]
+
+[csv_headers]
+"tests/fixtures/baskets.csv" = ["order_id", "product_id"]

@@ -1,0 +1,16 @@
+id = "T11"
+title = "Profile và audit các bảng CSV"
+phase = "P2"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "M"
+dependencies = ["T09"]
+merge_dependencies = ["T10"]
+input_files = ["docs/data_contract.md","tests/fixtures/instacart/orders.csv"]
+output_files = ["src/ie212_instacart/ingestion/profile.py","docs/data/quality_summary.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t11"]]
+merge_checks = [["python","-m","unittest","tests.test_t11"]]
+acceptance = ["Kiểm schema, null hợp lệ, duplicate, invalid, orphan và report theo split.","Fixture có ca âm. Bản chạy full tham chiếu manifest T10 và ghi số hàng theo lý do."]

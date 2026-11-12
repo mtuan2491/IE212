@@ -1,0 +1,22 @@
+name: Task IE212
+description: Công việc có contract và tiêu chí nghiệm thu
+title: "[Txx] "
+body:
+  - type: input
+    id: contract
+    attributes:
+      label: Đường dẫn contract và dependency IDs
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Mục tiêu, đầu vào và đầu ra
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Acceptance criteria, gates và bằng chứng
+    validations:
+      required: true

@@ -1,0 +1,16 @@
+id = "T29"
+title = "Kiểm release từ clone sạch"
+phase = "P6"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "Chung"
+estimated_scope = "M"
+dependencies = ["T27","T28"]
+merge_dependencies = []
+input_files = ["docs/runbooks/demo.md","reports/final_report.md","presentation/outline.md"]
+output_files = ["docs/runbooks/release.md","reports/release_checks.md"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t29"]]
+merge_checks = [["python","-m","unittest","tests.test_t29"]]
+acceptance = ["Chạy demo, kiểm reproducibility, tài liệu cài đặt và presentation.","Ghi SHA, lệnh, expected/actual, trạng thái môi trường và review chéo."]

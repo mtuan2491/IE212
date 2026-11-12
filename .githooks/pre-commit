@@ -1,0 +1,2 @@
+#!/bin/sh
+exec sh scripts/ci/check_private_files.sh

@@ -1,0 +1,16 @@
+id = "T15"
+title = "Chạy Parallel FP-Growth bằng Spark MLlib"
+phase = "P3"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "A"
+estimated_scope = "M"
+dependencies = ["T12","T14"]
+merge_dependencies = []
+input_files = ["src/ie212_instacart/preprocessing/baskets.py","src/ie212_instacart/validation/oracle.py"]
+output_files = ["src/ie212_instacart/mining/fpgrowth.py","tests/test_t15.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t15"]]
+merge_checks = [["python","-m","unittest","tests.test_t15"]]
+acceptance = ["Fit FP-Growth và xuất items/freq/support cùng provenance.","Khớp oracle theo scope fixture. Ghi phiên bản Spark và phạm vi itemset API xử lý."]

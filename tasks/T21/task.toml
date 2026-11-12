@@ -1,0 +1,16 @@
+id = "T21"
+title = "Viết Spark pair count tương đương"
+phase = "P4"
+status = "planned"
+priority = "high"
+assignee = "unassigned"
+workstream = "B"
+estimated_scope = "M"
+dependencies = ["T09"]
+merge_dependencies = ["T13"]
+input_files = ["docs/data_contract.md","tests/fixtures/instacart/orders.csv"]
+output_files = ["src/ie212_instacart/mining/pair_count.py","tests/test_t21.py"]
+input_checks = [["python","-m","unittest","tests.test_bootstrap.FixtureTests"]]
+output_checks = [["python","-m","unittest","tests.test_t21"]]
+merge_checks = [["python","-m","unittest","tests.test_t21"]]
+acceptance = ["Spark đọc cùng định dạng input, chuẩn hóa A<B và đếm mỗi pair một lần mỗi order.","Đầu ra theo cùng schema và kiểm toàn bộ fixture. Chạy HDFS theo handoff T13."]
